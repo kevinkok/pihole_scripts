@@ -36,7 +36,7 @@ rm adblock.unsorted adblock.sorted
 sleep 0.1
 
 echo -e " ${TICK} \e[32m Removing duplicates... \e[0m"
-mv adblockplus_blocklist.txt dblockplus_blocklist.txt.old && cat adblockplus_blocklist.txt.old | sort | uniq >> adblockplus_blocklist.txt
+mv adblockplus_blocklist.txt adblockplus_blocklist.txt.old && cat adblockplus_blocklist.txt.old | sort | uniq >> adblockplus_blocklist.txt
 rm adblockplus_blocklist.txt.old
 
 sleep 0.1
