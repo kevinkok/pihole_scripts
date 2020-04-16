@@ -16,20 +16,20 @@ if [ "$(id -u)" != "0" ] ; then
 fi
 
 echo -e " ${TICK} \e[32m Retrieving domains... \e[0m"
-curl -s -L https://easylist-downloads.adblockplus.org/fanboy-social.txt https://raw.githubusercontent.com/k2jp/abp-japanese-filters/master/abpjf.txt https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt https://280blocker.net/files/280blocker_adblock.txt https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt https://easylist-downloads.adblockplus.org/malwaredomains_full.txt > adblock.unsorted
+curl -s -L https://easylist-downloads.adblockplus.org/fanboy-social.txt https://raw.githubusercontent.com/k2jp/abp-japanese-filters/master/abpjf.txt https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt https://280blocker.net/files/280blocker_adblock.txt https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt https://easylist-downloads.adblockplus.org/malwaredomains_full.txt > /root/adblock.unsorted
 
 sleep 0.1
 
 echo -e " ${TICK} \e[32m Sorting blocklist... \e[0m"
-sort -u adblock.unsorted | grep ^\|\|.*\^$ | grep -v \/ > adblock.sorted
+sort -u /root/adblock.unsorted | grep ^\|\|.*\^$ | grep -v \/ > /root/adblock.sorted
 
 sleep 0.1
 
 echo -e " ${TICK} \e[32m Formatting blocklist... \e[0m"
-sed 's/[\|^]//g' < adblock.sorted > /root/adblockplus_blocklist.txt
+sed 's/[\|^]//g' < /root/adblock.sorted > /root/adblockplus_blocklist.txt
 
 echo -e " ${TICK} \e[32m Removing unnecessary files... \e[0m"
-rm adblock.unsorted adblock.sorted
+rm /root/adblock.unsorted /root/adblock.sorted
 
 echo -e " ${TICK} \e[32m Removing duplicates... \e[0m"
 mv /root/adblockplus_blocklist.txt /root/adblockplus_blocklist.txt.old && cat /root/adblockplus_blocklist.old | sort | uniq >> /root/adblockplus_blocklist.txt
