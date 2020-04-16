@@ -16,7 +16,7 @@ if [ "$(id -u)" != "0" ] ; then
 fi
 
 echo -e " ${TICK} \e[32m Retrieving domains... \e[0m"
-curl -s -L https://easylist-downloads.adblockplus.org/fanboy-social.txt https://raw.githubusercontent.com/k2jp/abp-japanese-filters/master/abpjf.txt https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt https://280blocker.net/files/280blocker_adblock.txt https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt https://easylist-downloads.adblockplus.org/malwaredomains_full.txt > /root/adblock.unsorted
+curl -sS -L https://easylist-downloads.adblockplus.org/fanboy-social.txt https://raw.githubusercontent.com/k2jp/abp-japanese-filters/master/abpjf.txt https://raw.githubusercontent.com/ABPindo/indonesianadblockrules/master/subscriptions/abpindo.txt https://280blocker.net/files/280blocker_adblock.txt https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt https://easylist-downloads.adblockplus.org/malwaredomains_full.txt > /root/adblock.unsorted
 
 sleep 0.1
 
