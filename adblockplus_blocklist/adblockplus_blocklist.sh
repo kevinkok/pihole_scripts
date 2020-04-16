@@ -32,7 +32,7 @@ echo -e " ${TICK} \e[32m Removing unnecessary files... \e[0m"
 rm /root/adblock.unsorted /root/adblock.sorted
 
 echo -e " ${TICK} \e[32m Removing duplicates... \e[0m"
-mv /root/adblockplus_blocklist.txt /root/adblockplus_blocklist.txt.old && cat /root/adblockplus_blocklist.old | sort | uniq >> /root/adblockplus_blocklist.txt
+mv /root/adblockplus_blocklist.txt /root/adblockplus_blocklist.txt.old && cat /root/adblockplus_blocklist.txt.old | sort | uniq >> /root/adblockplus_blocklist.txt
 
 echo -e " [...] \e[32m Pi-hole gravity rebuilding lists. This may take a while... \e[0m"
 pihole -g
