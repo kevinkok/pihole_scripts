@@ -37,12 +37,14 @@ sleep 0.1
 
 echo -e " ${TICK} \e[32m Removing duplicates... \e[0m"
 mv adblockplus_blocklist.txt dblockplus_blocklist.txt.old && cat adblockplus_blocklist.txt.old | sort | uniq >> adblockplus_blocklist.txt
+rm adblockplus_blocklist.txt.old
 
 sleep 0.1
 
 echo -e " ${TICK} \e[32m Commit changes and push to repository... \e[0m"
 cd /opt/pihole_scripts/
-git commit -a
+git add .
+git commit -a -m "Commit updated block lists."
 git pull
 git push
 
